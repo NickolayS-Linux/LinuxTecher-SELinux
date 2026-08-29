@@ -81,16 +81,19 @@ Vagrantfile:
 
 <img width="843" height="56" alt="image" src="https://github.com/user-attachments/assets/2c345fe8-5dd7-4cdb-a038-9953325f576b" />
 
+Копируем время, и с помощью утилиты audit2why смотрим 
 
+<img width="834" height="168" alt="image" src="https://github.com/user-attachments/assets/31718d88-6d70-4d7d-8661-a9a214961b58" />
 
-<img width="843" height="56" alt="image" src="https://github.com/user-attachments/assets/42b18e88-28a6-4c2d-b133-9a4df943726a" />
+Утилита audit2why нам показывает почему трафик блокируется. Исходя из вывода утилиты, видим, что нам нужно поменять параметр nis_enabled. 
 
+Включим параметр nis_enabled и перезапустим nginx: 
 
+<img width="834" height="107" alt="image" src="https://github.com/user-attachments/assets/e70273d4-d933-4f5c-bc21-6e8cb61e89e4" />
 
+Как можно увидеть сообщений об ошибках при запуске nginx нет, проверим статус сервиса:
 
-
-
-
+<img width="833" height="284" alt="image" src="https://github.com/user-attachments/assets/56777615-3e2d-4c4a-a845-080bb2c83211" />
 
 
 
