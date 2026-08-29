@@ -43,11 +43,17 @@ Vagrantfile:
 
 <img width="686" height="550" alt="image" src="https://github.com/user-attachments/assets/2a303e82-a4e7-4b72-80b2-c821d549aff7" />
 
+Во время развертывания VM можно увидеть что сервис nginx не запустился
+
+<img width="825" height="299" alt="image" src="https://github.com/user-attachments/assets/ba1d94f6-8a96-49cf-b80b-37bc55894523" />
+
+Данная ошибка появляется из-за того, что SELinux блокирует работу nginx на нестандартном порту.
+
 После запуска VM выполняем команду:
 
 <img width="502" height="19" alt="image" src="https://github.com/user-attachments/assets/4adb60cf-167f-46cb-b778-2164ca121078" />
 
-и Приступаю к выполнению ДЗ.
+и приступаю к выполнению ДЗ.
 
 
 
