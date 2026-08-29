@@ -75,9 +75,15 @@ Vagrantfile:
 
 Из скриншота видим, что у меня включен режим Enforcing. Данный режим означает, что SELinux будет блокировать запрещенную активность.
 
+Разрешу в SELinux работу nginx на порту TCP 4881 c помощью переключателей setsebool
+
+Находим в системных логах (/var/log/audit/audit.log) информацию о блокировании порта
+
+<img width="843" height="56" alt="image" src="https://github.com/user-attachments/assets/2c345fe8-5dd7-4cdb-a038-9953325f576b" />
 
 
 
+<img width="843" height="56" alt="image" src="https://github.com/user-attachments/assets/42b18e88-28a6-4c2d-b133-9a4df943726a" />
 
 
 
