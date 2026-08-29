@@ -111,14 +111,29 @@ Vagrantfile:
 
 Вернём запрет работы **nginx** на порту 4881 обратно. Для этого отключу nis_enabled: 
 
-<img width="590" height="100" alt="image" src="https://github.com/user-attachments/assets/2381b059-13c4-43b4-83d2-33b7e250c8be" />
+<img width="412" height="84" alt="image" src="https://github.com/user-attachments/assets/75146ddc-4911-4306-a6df-b08d24bf0ae1" />
 
 После отключения nis_enabled служба nginx снова не запустится.
 
 Теперь разрешим в SELinux работу **nginx** на порту TCP 4881 c помощью добавления нестандартного порта в имеющийся тип:
 
-![Uploading image.png…]()
+<img width="590" height="100" alt="image" src="https://github.com/user-attachments/assets/9c6197fb-1c43-49bf-a612-eda700e24cc5" />
 
+Добавим порт в тип http_port_t:
+
+<img width="563" height="57" alt="image" src="https://github.com/user-attachments/assets/0cbb2484-2384-4519-b70d-4cec858139bd" />
+
+<img width="666" height="71" alt="image" src="https://github.com/user-attachments/assets/8044b0f9-8c14-4282-b51b-d4cac040f7a6" />
+
+Команда выполнена без ошибок. Теперь запустим **nginx**:
+
+<img width="745" height="338" alt="image" src="https://github.com/user-attachments/assets/e1719991-ddc9-4c12-a5e3-8c663d06bf26" />
+
+Теперь запустим браузер и проверим работу **nginx**:
+
+<img width="1862" height="858" alt="image" src="https://github.com/user-attachments/assets/071d6a02-fd8c-45b1-a32f-8c590fb7fcdd" />
+
+Удалить нестандартный порт из имеющегося типа можно с помощью команды:
 
 
 
