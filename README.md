@@ -75,7 +75,7 @@ Vagrantfile:
 
 Из скриншота видим, что у меня включен режим Enforcing. Данный режим означает, что SELinux будет блокировать запрещенную активность.
 
-Разрешу в SELinux работу nginx на порту TCP 4881 c помощью переключателей setsebool
+**Разрешу в SELinux работу nginx на порту TCP 4881 c помощью переключателей setsebool**
 
 Находим в системных логах (/var/log/audit/audit.log) информацию о блокировании порта
 
@@ -115,7 +115,7 @@ Vagrantfile:
 
 После отключения nis_enabled служба nginx снова не запустится.
 
-Теперь разрешим в SELinux работу **nginx** на порту TCP 4881 c помощью добавления нестандартного порта в имеющийся тип:
+**Теперь разрешим в SELinux работу **nginx** на порту TCP 4881 c помощью добавления нестандартного порта в имеющийся тип:**
 
 <img width="590" height="100" alt="image" src="https://github.com/user-attachments/assets/9c6197fb-1c43-49bf-a612-eda700e24cc5" />
 
@@ -135,8 +135,13 @@ Vagrantfile:
 
 Удалить нестандартный порт из имеющегося типа можно с помощью команды:
 
+<img width="586" height="73" alt="image" src="https://github.com/user-attachments/assets/06fe34ad-464e-4ac5-8750-a2a1f19a6919" />
 
+Перезапустим службу и проверим её статус:
 
+<img width="763" height="301" alt="image" src="https://github.com/user-attachments/assets/239b3be6-ae8a-40db-9f0e-415aa9e2c401" />
+
+**Разрешим в SELinux работу nginx на порту TCP 4881 c помощью формирования и установки модуля SELinux:**
 
 
 
