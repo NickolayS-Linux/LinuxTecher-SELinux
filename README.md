@@ -18,7 +18,7 @@ Oracle VirtualBox (https://www.virtualbox.org/wiki/Windows_Downloads).
 
 **Цель домашнего задания:
 
-Запустить Nginx на нестандартном порту 3-мя разными способами:
+**Запустить Nginx на нестандартном порту 3-мя разными способами:**
 
   * переключатели setsebool;
 
@@ -143,6 +143,25 @@ Vagrantfile:
 
 **Разрешим в SELinux работу nginx на порту TCP 4881 c помощью формирования и установки модуля SELinux:**
 
+Попробуем снова запустить Nginx:
+
+<img width="621" height="85" alt="image" src="https://github.com/user-attachments/assets/05fc55bb-a40f-4448-9dd3-aaa06b4991ad" />
+
+**Nginx** не запустится, так как SELinux продолжает его блокировать. Посмотрим логи SELinux, которые относятся к **Nginx**:
+
+<img width="838" height="167" alt="image" src="https://github.com/user-attachments/assets/d07ff31b-82f6-481b-9d23-681058673ace" />
+
+Воспользуемся утилитой audit2allow для того, чтобы на основе логов SELinux сделать модуль, разрешающий работу nginx на нестандартном порту:
+
+<img width="661" height="98" alt="image" src="https://github.com/user-attachments/assets/0fa91804-53b7-41d3-94c1-169ae5473b6a" />
+
+Audit2allow сформировал модуль, и сообщил нам команду, с помощью которой можно применить данный модуль:
+
+Применим модуль, запущу службу **nginx** и проверю её статус:
+
+<img width="754" height="324" alt="image" src="https://github.com/user-attachments/assets/b5f08af2-602d-4977-9df4-1cbf7c075985" />
+
+Первая часть ДЗ выполнена.
 
 
 
