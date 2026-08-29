@@ -55,6 +55,44 @@ Vagrantfile:
 
 и приступаю к выполнению ДЗ.
 
+Дальнейшие действия выполняются от пользователя root. Переходим в root пользователя: sudo -i
+
+<img width="376" height="88" alt="image" src="https://github.com/user-attachments/assets/8bc03ff2-ef8f-448c-a412-d41dad04f021" />
+
+Для начала проверим, что в ОС отключен **файервол**: systemctl status firewalld
+
+<img width="352" height="96" alt="image" src="https://github.com/user-attachments/assets/29d87cf9-adc7-4ca2-b210-d51d1ade5ecb" />
+
+у меня данный сервис отсутствует.
+
+Также можно проверить, что конфигурация **nginx** настроена без ошибок:
+
+<img width="528" height="99" alt="image" src="https://github.com/user-attachments/assets/61e698da-3875-40c4-8963-ac876f67b29c" />
+
+Далее проверю режим работы SELinux: 
+
+<img width="358" height="125" alt="image" src="https://github.com/user-attachments/assets/05d0764a-3d1b-4b49-aaba-0ffa2405f732" />
+
+Из скриншота видим, что у меня включен режим Enforcing. Данный режим означает, что SELinux будет блокировать запрещенную активность.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
