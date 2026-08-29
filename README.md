@@ -87,18 +87,31 @@ Vagrantfile:
 
 Утилита audit2why нам показывает почему трафик блокируется. Исходя из вывода утилиты, видим, что нам нужно поменять параметр nis_enabled. 
 
-Включим параметр nis_enabled и перезапустим nginx: 
+Включим параметр nis_enabled и перезапустим **nginx**: 
 
 <img width="834" height="107" alt="image" src="https://github.com/user-attachments/assets/e70273d4-d933-4f5c-bc21-6e8cb61e89e4" />
 
-Как можно увидеть сообщений об ошибках при запуске nginx нет, проверим статус сервиса:
+Как можно увидеть сообщений об ошибках при запуске **nginx** нет, проверим статус сервиса:
 
 <img width="833" height="284" alt="image" src="https://github.com/user-attachments/assets/56777615-3e2d-4c4a-a845-080bb2c83211" />
 
+Так же видим службу в списке выполняем процессов:
 
+<img width="699" height="86" alt="image" src="https://github.com/user-attachments/assets/729495f1-ee00-41fa-b408-1256080da0da" />
 
+Также можно проверить работу nginx из браузера. Заходим в браузер на хосте и переходим по адресу http://127.0.0.1:4881
 
+<img width="1862" height="858" alt="image" src="https://github.com/user-attachments/assets/4c56b964-51f0-4a0d-b9f7-2cb1d0546eb0" />
 
+Работает!
+
+Проверить статус параметра можно с помощью команды:
+
+<img width="379" height="83" alt="image" src="https://github.com/user-attachments/assets/319c6e78-eca6-4ec1-a731-09fdf41f23e4" />
+
+Вернём запрет работы **nginx** на порту 4881 обратно. Для этого отключу nis_enabled: 
+
+![Uploading image.png…]()
 
 
 
