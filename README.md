@@ -111,7 +111,16 @@ Vagrantfile:
 
 Вернём запрет работы **nginx** на порту 4881 обратно. Для этого отключу nis_enabled: 
 
+<img width="590" height="100" alt="image" src="https://github.com/user-attachments/assets/2381b059-13c4-43b4-83d2-33b7e250c8be" />
+
+После отключения nis_enabled служба nginx снова не запустится.
+
+Теперь разрешим в SELinux работу **nginx** на порту TCP 4881 c помощью добавления нестандартного порта в имеющийся тип:
+
 ![Uploading image.png…]()
+
+
+
 
 
 
