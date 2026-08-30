@@ -163,12 +163,57 @@ Audit2allow сформировал модуль, и сообщил нам ком
 
 Первая часть ДЗ выполнена.
 
+**Обеспечение работоспособности приложения при включенном SELinux**
 
+Для того, чтобы развернуть стенд потребуется хост, с установленным git и ansible.
 
+Git и Ansible были развернуты в консоли без графического терминала, при установке Ubuntu
 
+Выполним клонирование репозитория:
 
+<img width="875" height="470" alt="image" src="https://github.com/user-attachments/assets/cd71b4bd-abe7-49e1-8b72-b54bb2196501" />
 
+После того, как стенд развернется, проверим ВМ с помощью команды:
 
+<img width="729" height="202" alt="image" src="https://github.com/user-attachments/assets/a7418bdd-196c-4f51-a9ba-57f9951a9cf6" />
+
+Подключимся к клиенту:
+
+<img width="651" height="534" alt="image" src="https://github.com/user-attachments/assets/0aed4855-04a1-4883-83df-80951e393e97" />
+
+Попробуем внести изменения в зону: 
+
+<img width="609" height="378" alt="image" src="https://github.com/user-attachments/assets/ace6c808-373d-4d00-8278-610241e96c84" />
+
+Изменения внести не получилось. ПGосмотрим логи SELinux, чтобы понять в чём может быть проблема:
+
+<img width="1178" height="489" alt="image" src="https://github.com/user-attachments/assets/6ce9e01b-2175-4cce-b410-de27b2cd1a52" />
+
+Не закрывая сессию на клиенте, подключусь к серверу ns01 и проверим логи SELinux:
+
+<img width="1178" height="749" alt="image" src="https://github.com/user-attachments/assets/64af4f88-7398-4801-a716-de738c47caa0" />
+
+В логах видно, что ошибка в контексте безопасности. Целевой контекст named_conf_t. Для сравнения посмотрим существующую зону (localhost) 
+
+и её контекст:
+
+<img width="1178" height="96" alt="image" src="https://github.com/user-attachments/assets/0b800334-9210-4291-bbaf-3df1422d0a02" />
+
+У наших конфигов в /etc/named вместо типа named_zone_t используется тип named_conf_t.
+
+Проверим данную проблему в каталоге /etc/named:
+
+<img width="1030" height="247" alt="image" src="https://github.com/user-attachments/assets/a3591057-49b2-4deb-bb45-9c7f3c732f02" />
+
+Тут также видим, что контекст безопасности неправильный. Проблема заключается в том, что конфигурационные файлы лежат в другом каталоге. 
+
+Посмотреть в каком каталоги должны лежать, файлы, чтобы на них распространялись правильные политики SELinux можно с помощью команды: 
+
+<img width="1091" height="464" alt="image" src="https://github.com/user-attachments/assets/36177c4c-96c5-4a5e-b755-e64a0a669694" />
+
+Изменим тип контекста безопасности для каталога /etc/named:
+
+<img width="1091" height="282" alt="image" src="https://github.com/user-attachments/assets/1bb8f481-d499-4320-a202-1223bf137818" />
 
 
 
