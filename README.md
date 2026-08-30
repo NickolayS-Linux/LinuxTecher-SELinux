@@ -12,7 +12,9 @@ Vagrant for Windows
 
 Oracle VirtualBox (https://www.virtualbox.org/wiki/Windows_Downloads).
 
-Все дальнейшие действия были проверены при использовании VirtualBox 7.2.6 r172322, хостовая ОС: Windows 10.
+Первая часть ДЗ была решена и проверена при использовании VirtualBox 7.2.6 r172322, хостовая ОС: Windows 10.
+
+Вторая часть, были установлены на хостовую машину, дополнительный раздел Ubuntu 24.04.
 
 Гостевая система — Almalinux/9 (версия 1.0.0) из https://vagrant.elab.pro/downloads/. 
 
